@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arif Istiaq</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
+
+
   
 <script>
 fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://scholar.google.com/citations?user=PtXSjsEAAAAJ"))
@@ -30,6 +34,15 @@ fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://schola
     document.getElementById("papers").innerText = "Scholar";
   });
 </script>
+
+<section class="container">
+  <h2>Citation Trend</h2>
+  <canvas id="citationChart" height="100"></canvas>
+</section>
+
+
+
+
 
   
 <body>
@@ -286,6 +299,126 @@ fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://schola
 <footer>
   <p>© 2026 Arif Istiaq</p>
 </footer>
+<script>
+fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://scholar.google.com/citations?user=PtXSjsEAAAAJ"))
+  .then(response => response.json())
+  .then(data => {
+    const html = data.contents;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
 
+    const rows = doc.querySelectorAll(".gsc_g_t");
+
+    let years = [];
+    let citations = [];
+
+    rows.forEach((row, index) => {
+      if (index % 2 === 0) {
+        years.push(row.innerText);
+      } else {
+        citations.push(parseInt(row.innerText) || 0);
+      }
+    });
+
+    const ctx = document.getElementById("citationChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: years,
+        datasets: [{
+          label: "Citations per Year",
+          data: citations,
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#333" }
+          },
+          y: {
+            ticks: { color: "#333" }
+          }
+        }
+      }
+    });
+  })
+  .catch(() => {
+    console.log("Could not load citation graph");
+  });
+</script>
+
+
+
+
+
+
+  <script>
+fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://scholar.google.com/citations?user=PtXSjsEAAAAJ"))
+  .then(response => response.json())
+  .then(data => {
+    const html = data.contents;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const rows = doc.querySelectorAll(".gsc_g_t");
+
+    let years = [];
+    let citations = [];
+
+    rows.forEach((row, index) => {
+      if (index % 2 === 0) {
+        years.push(row.innerText);
+      } else {
+        citations.push(parseInt(row.innerText) || 0);
+      }
+    });
+
+    const ctx = document.getElementById("citationChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: years,
+        datasets: [{
+          label: "Citations per Year",
+          data: citations,
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#333" }
+          },
+          y: {
+            ticks: { color: "#333" }
+          }
+        }
+      }
+    });
+  })
+  .catch(() => {
+    console.log("Could not load citation graph");
+  });
+</script>
+
+
+
+
+  
 </body>
 </html>
