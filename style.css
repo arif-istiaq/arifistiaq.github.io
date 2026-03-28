@@ -135,3 +135,16 @@ h3 {
 .pub em {
   color: #555;
 }
+.metrics {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.metrics div {
+  text-align: center;
+}
+
+.metrics strong {
+  font-size: 20px;
+}
