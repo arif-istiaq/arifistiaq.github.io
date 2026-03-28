@@ -7,33 +7,8 @@
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+ 
 
-
-
-  
-<script>
-fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://scholar.google.com/citations?user=PtXSjsEAAAAJ"))
-  .then(response => response.json())
-  .then(data => {
-    const html = data.contents;
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-
-    const stats = doc.querySelectorAll(".gsc_rsb_std");
-
-    if (stats.length >= 3) {
-      document.getElementById("citations").innerText = stats[0].innerText;
-      document.getElementById("hindex").innerText = stats[2].innerText;
-      document.getElementById("papers").innerText = document.querySelectorAll(".gsc_a_tr").length;
-    }
-  })
-  .catch(() => {
-    document.getElementById("citations").innerText = "View";
-    document.getElementById("hindex").innerText = "on";
-    document.getElementById("papers").innerText = "Scholar";
-  });
-</script>
 
 <section class="container">
   <h2>Citation Trend</h2>
@@ -102,6 +77,12 @@ fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://schola
     Arif Istiaq is a Postdoctoral Associate at Washington University in St. Louis, where he studies genomic imprinting and epigenetic regulation in human development and disease, with a focus on cancer. He completed his PhD in developmental neurobiology, uncovering regulators of RNA splicing defects that impact stem cell differentiation in hydrocephalus. He holds a BS and MS in Microbiology, with training in microbial genetics and metagenomics.
   </p>
 </section>
+  
+<section class="container">
+  <h2>Citation Trend</h2>
+  <canvas id="citationChart" height="100"></canvas>
+</section>
+  
 
 <section id="research" class="container">
   <h2>Research</h2>
@@ -360,7 +341,7 @@ fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://schola
 
 
 
-  <script>
+ <script>
 fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://scholar.google.com/citations?user=PtXSjsEAAAAJ"))
   .then(response => response.json())
   .then(data => {
@@ -396,23 +377,10 @@ fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://schola
       },
       options: {
         plugins: {
-          legend: {
-            display: false
-          }
-        },
-        scales: {
-          x: {
-            ticks: { color: "#333" }
-          },
-          y: {
-            ticks: { color: "#333" }
-          }
+          legend: { display: false }
         }
       }
     });
-  })
-  .catch(() => {
-    console.log("Could not load citation graph");
   });
 </script>
 
