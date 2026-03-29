@@ -210,4 +210,37 @@ header {
   background: white;
   z-index: 1000;
 }
+/* Smooth global transition */
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease;
+}
+
+.pub:hover {
+  transform: translateX(3px);
+  transition: 0.3s ease;
+}
+
+.highlight:hover {
+  transform: scale(1.01);
+  transition: 0.3s ease;
+}
+
 
