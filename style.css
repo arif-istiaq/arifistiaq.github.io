@@ -243,8 +243,8 @@ body {
   transition: 0.3s ease;
 }
 .research-img {
-  width: 25%;
-  max-width: 100px;   /* controls size */
+  width: 2%;
+  max-width: 10px;   /* controls size */
   height: auto;
   margin: 15px auto;
   display: block;
