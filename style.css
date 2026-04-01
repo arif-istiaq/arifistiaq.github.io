@@ -8,8 +8,8 @@ body {
 
 /* Layout */
 .container {
-  width: 85%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 1200px;   /* 🔥 bigger so nav fits */
   margin: auto;
 }
 
@@ -36,19 +36,23 @@ h1 {
 
 /* Navigation links (FIXED STRONG CONTRAST) */
 nav a {
-  margin-left: 25px;
-  font-size: 15px;
+  font-size: 14px;        /* slightly smaller to fit */
   font-weight: 500;
-  color: white;              /* 🔥 force visible */
+  color: white;
   text-decoration: none;
   position: relative;
-  opacity: 0.85;             /* slight softness */
+  white-space: nowrap;    /* 🔥 prevents breaking words */
+  opacity: 1;             /* 🔥 remove fading */
 }
-
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;   /* 🔥 prevents second line */
+}
 /* Hover */
 nav a:hover {
-  opacity: 1;
-  color: white;
+  color: #ffffff;
 }
 
 /* Underline animation */
@@ -61,6 +65,10 @@ nav a::after {
   height: 2px;
   background: #4da6ff;
   transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover::after {
