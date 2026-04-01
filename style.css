@@ -338,3 +338,32 @@ section {
   height: auto;
   display: block;
 }
+
+/* ===== NAV FIX (SAFE OVERRIDE) ===== */
+
+/* Make nav stay in one line */
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ensure nav items are visible */
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+/* Force visible text */
+header nav a {
+  color: white !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Hover color */
+header nav a:hover {
+  color: #4da6ff !important;
+}
