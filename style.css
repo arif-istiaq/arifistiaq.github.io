@@ -314,7 +314,7 @@ section {
 }
 
 .banner img {
-  max-height: 160px;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
 }
-line-height: 0;
