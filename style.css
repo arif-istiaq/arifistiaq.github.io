@@ -1,60 +1,45 @@
-/* Header */
+/* ===== CLEAN NAV RESET ===== */
+
 header {
   background: #0b1f3a;
   color: white;
   padding: 12px 0;
 }
 
-/* Layout */
-.container.nav {
+/* layout */
+header .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Title */
-h1 {
-  color: white;
+/* title */
+header h1 {
   margin: 0;
+  color: white;
   font-size: 22px;
 }
 
-/* Navigation */
-nav {
+/* nav container */
+header nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
-/* Links */
-nav a {
+/* nav links */
+header nav a {
   color: white;
+  font-size: 13px;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  white-space: nowrap;
 }
 
-/* Hover */
-nav a:hover {
+/* hover */
+header nav a:hover {
   color: #4da6ff;
 }
 
-
-/* Underline animation */
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #4da6ff;
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
 
 /* Hero */
 .hero {
