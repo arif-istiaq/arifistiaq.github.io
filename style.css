@@ -298,6 +298,7 @@ header {
 }
 .banner img {
   width: 100%;
-  height: auto;      /* IMPORTANT: no cropping */
+  max-height: 180px;   /* limits size */
+  object-fit: contain; /* keeps full image */
   display: block;
 }
