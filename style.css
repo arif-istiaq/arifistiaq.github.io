@@ -315,3 +315,39 @@ html {
     flex-wrap: wrap;
   }
 }
+
+
+/* Accordion style */
+details {
+  cursor: pointer;
+}
+
+summary {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow */
+summary::before {
+  content: "▶";
+  margin-right: 10px;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* Content spacing */
+details p,
+details ol {
+  margin-left: 20px;
+  color: #444;
+}
